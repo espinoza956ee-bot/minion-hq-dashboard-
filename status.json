@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
   "source": "github_actions",
-  "verified_at": "2026-10-16T23:37:10.842597+00:00",
-  "run_id": "38982374024",
-  "run_url": "https://github.com/espinoza956ee-bot/My-jobs-/actions/runs/38982374024",
+  "verified_at": "2026-10-16T23:51:11.288394+00:00",
+  "run_id": "38983550995",
+  "run_url": "https://github.com/espinoza956ee-bot/My-jobs-/actions/runs/38983550995",
   "departments": {
-    "product_factory": "idle",
-    "manager": "idle",
-    "job_hunter": "idle",
+    "product_factory": "pending_review",
+    "manager": "pending_review",
+    "job_hunter": "pending_review",
     "research": "idle",
-    "quality_control": "idle",
+    "quality_control": "pending_review",
     "marketing": "idle",
     "publishing": "idle"
   },
