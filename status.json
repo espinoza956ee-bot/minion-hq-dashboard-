@@ -1,17 +1,17 @@
 {
   "schema_version": 1,
   "source": "github_actions",
-  "verified_at": "2026-10-16T23:27:17.084588+00:00",
-  "run_id": "38981510140",
-  "run_url": "https://github.com/espinoza956ee-bot/My-jobs-/actions/runs/38981510140",
+  "verified_at": "2026-10-16T23:37:10.842597+00:00",
+  "run_id": "38982374024",
+  "run_url": "https://github.com/espinoza956ee-bot/My-jobs-/actions/runs/38982374024",
   "departments": {
-    "product_factory": "blocked",
-    "manager": "blocked",
-    "job_hunter": "blocked",
-    "research": "blocked",
-    "quality_control": "blocked",
-    "marketing": "blocked",
+    "product_factory": "idle",
+    "manager": "idle",
+    "job_hunter": "idle",
+    "research": "idle",
+    "quality_control": "idle",
+    "marketing": "idle",
     "publishing": "idle"
   },
-  "note": "Latest available run report only. Blocked may mean missing or unrecognized status data. Not a continuous live stream."
+  "note": "Latest available run snapshot. Pending review does not mean approved. No live stream or automatic publishing."
 }
