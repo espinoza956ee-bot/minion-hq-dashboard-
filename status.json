@@ -1,17 +1,17 @@
 {
   "schema_version": 1,
   "source": "github_actions",
-  "verified_at": "2026-10-17T02:38:55.446299+00:00",
-  "run_id": "38995735047",
-  "run_url": "https://github.com/espinoza956ee-bot/My-jobs-/actions/runs/38995735047",
+  "verified_at": "2026-10-17T02:45:53.737180+00:00",
+  "run_id": "38996190405",
+  "run_url": "https://github.com/espinoza956ee-bot/My-jobs-/actions/runs/38996190405",
   "departments": {
     "product_factory": "pending_review",
     "manager": "idle",
     "job_hunter": "pending_review",
-    "research": "pending_review",
+    "research": "completed",
     "quality_control": "pending_review",
-    "marketing": "idle",
-    "publishing": "idle"
+    "marketing": "pending_review",
+    "publishing": "pending_review"
   },
   "note": "Latest available run snapshot. Pending review does not mean approved. No live stream or automatic publishing."
 }
