@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
   "source": "github_actions",
-  "verified_at": "2026-10-17T02:45:53.737180+00:00",
-  "run_id": "38996190405",
-  "run_url": "https://github.com/espinoza956ee-bot/My-jobs-/actions/runs/38996190405",
+  "verified_at": "2026-10-17T10:14:45.887632+00:00",
+  "run_id": "39024151441",
+  "run_url": "https://github.com/espinoza956ee-bot/My-jobs-/actions/runs/39024151441",
   "departments": {
     "product_factory": "pending_review",
     "manager": "idle",
     "job_hunter": "pending_review",
-    "research": "completed",
+    "research": "blocked",
     "quality_control": "pending_review",
     "marketing": "pending_review",
     "publishing": "pending_review"
