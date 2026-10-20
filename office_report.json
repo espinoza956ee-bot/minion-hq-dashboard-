@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-20T10:43:02.888422+00:00",
-  "run_id": "39409880933",
-  "run_url": "https://github.com/espinoza956ee-bot/My-jobs-/actions/runs/39409880933",
+  "generated_at": "2026-10-20T12:24:33.777094+00:00",
+  "run_id": "39421999749",
+  "run_url": "https://github.com/espinoza956ee-bot/My-jobs-/actions/runs/39421999749",
   "public_read_only": true,
   "market_demand_verified": false,
   "sales_verified": false,
@@ -50,12 +50,13 @@
         "Building three separate product drafts",
         "Creating journal draft",
         "Reworking journal using QC feedback",
+        "Reworking journal using QC feedback",
         "Manager accepted internal QC; publication not authorized",
         "3/3 product drafts passed internal QC"
       ],
       "files": [
         {
-          "name": "daily_reflection_journal_attempt_2.pdf",
+          "name": "daily_reflection_journal_attempt_3.pdf",
           "access": "GitHub Actions report artifact"
         },
         {
@@ -63,7 +64,7 @@
           "access": "GitHub Actions report artifact"
         },
         {
-          "name": "equipment_inspection_attempt_2.pdf",
+          "name": "equipment_inspection_attempt_1.pdf",
           "access": "GitHub Actions report artifact"
         }
       ]
@@ -71,13 +72,13 @@
     "quality_control": {
       "summary": "3/3 product drafts passed internal QC; not a full-page or marketplace compliance audit.",
       "tasks": [
-        "daily_reflection: pass, attempt 2",
+        "daily_reflection: pass, attempt 3",
         "construction_daily_log: pass, attempt 1",
-        "equipment_inspection: pass, attempt 2"
+        "equipment_inspection: pass, attempt 1"
       ],
       "activity": [
-        "Attempt 1 failed: every_page_has_content; reflection_prompts_present; Not attempted",
-        "Structural and visual checks, attempt 2",
+        "Attempt 2 failed: The footer text 'MINION HQ | DRAFT | NOT FOR PUBLICATION' is very small and may be difficult to read on print.; There is a lack of visual hierarchy or",
+        "Structural and visual checks, attempt 3",
         "Structural and sampled visual QC passed",
         "Reviewing construction_daily_log",
         "Reviewing equipment_inspection",
