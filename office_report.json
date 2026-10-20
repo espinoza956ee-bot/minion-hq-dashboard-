@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-20T16:53:12.757919+00:00",
-  "run_id": "39461329858",
-  "run_url": "https://github.com/espinoza956ee-bot/My-jobs-/actions/runs/39461329858",
+  "generated_at": "2026-10-20T23:29:54.059410+00:00",
+  "run_id": "39515380834",
+  "run_url": "https://github.com/espinoza956ee-bot/My-jobs-/actions/runs/39515380834",
   "public_read_only": true,
   "market_demand_verified": false,
   "sales_verified": false,
@@ -34,7 +34,7 @@
         "Printable planners and checklists — External research unavailable",
         "Customer Needs Researcher: 3 topics, 14 public-source signals; buyer demand not verified",
         "AI Income & Opportunities Researcher: 3 topics, 15 public-source signals; buyer demand not verified",
-        "Marketplace & Competitor Researcher: 3 topics, 8 public-source signals; buyer demand not verified"
+        "Marketplace & Competitor Researcher: 3 topics, 9 public-source signals; buyer demand not verified"
       ],
       "activity": [
         "Scanning rotating AI-income opportunities; next scheduled run will scan again",
