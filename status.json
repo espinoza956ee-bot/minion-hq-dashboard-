@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
   "source": "github_actions",
-  "verified_at": "2026-10-20T16:47:21.879219+00:00",
-  "run_id": "39460489871",
-  "run_url": "https://github.com/espinoza956ee-bot/My-jobs-/actions/runs/39460489871",
+  "verified_at": "2026-10-20T16:53:12.727283+00:00",
+  "run_id": "39461329858",
+  "run_url": "https://github.com/espinoza956ee-bot/My-jobs-/actions/runs/39461329858",
   "departments": {
-    "product_factory": "completed",
-    "manager": "completed",
+    "product_factory": "blocked",
+    "manager": "blocked",
     "job_hunter": "completed",
     "research": "completed",
-    "quality_control": "pending_review",
+    "quality_control": "failed",
     "marketing": "completed",
     "publishing": "blocked"
   },
