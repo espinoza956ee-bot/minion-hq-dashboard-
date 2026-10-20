@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-20T16:37:30.492539+00:00",
-  "run_id": "39459062985",
-  "run_url": "https://github.com/espinoza956ee-bot/My-jobs-/actions/runs/39459062985",
+  "generated_at": "2026-10-20T16:47:21.909892+00:00",
+  "run_id": "39460489871",
+  "run_url": "https://github.com/espinoza956ee-bot/My-jobs-/actions/runs/39460489871",
   "public_read_only": true,
   "market_demand_verified": false,
   "sales_verified": false,
@@ -30,7 +30,7 @@
         "Printable planners and checklists — External research unavailable",
         "Customer Needs Researcher: 3 topics, 14 public-source signals; buyer demand not verified",
         "AI Income & Opportunities Researcher: 3 topics, 15 public-source signals; buyer demand not verified",
-        "Marketplace & Competitor Researcher: 3 topics, 8 public-source signals; buyer demand not verified"
+        "Marketplace & Competitor Researcher: 3 topics, 9 public-source signals; buyer demand not verified"
       ],
       "activity": [
         "Marketplace & Competitor Researcher checking public sources",
@@ -55,13 +55,12 @@
         "Building three separate product drafts",
         "Creating journal draft",
         "Reworking journal using QC feedback",
-        "Reworking journal using QC feedback",
         "Manager accepted internal QC; publication not authorized",
         "3/3 product drafts passed internal QC"
       ],
       "files": [
         {
-          "name": "daily_reflection_journal_attempt_3.pdf",
+          "name": "daily_reflection_journal_attempt_2.pdf",
           "access": "GitHub Actions report artifact"
         },
         {
@@ -77,13 +76,13 @@
     "quality_control": {
       "summary": "3/3 product drafts passed internal QC; not a full-page or marketplace compliance audit.",
       "tasks": [
-        "daily_reflection: pass, attempt 3",
+        "daily_reflection: pass, attempt 2",
         "construction_daily_log: pass, attempt 1",
         "equipment_inspection: pass, attempt 1"
       ],
       "activity": [
-        "Attempt 2 failed: The footer text 'MINION HQ | DRAFT | NOT FOR PUBLICATION' is very small and may be difficult to read in print.; The 'Day X / 24' date indicator at the",
-        "Structural and visual checks, attempt 3",
+        "Attempt 1 failed: every_page_has_content; reflection_prompts_present; Not attempted",
+        "Structural and visual checks, attempt 2",
         "Structural and sampled visual QC passed",
         "Reviewing construction_daily_log",
         "Reviewing equipment_inspection",
