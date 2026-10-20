@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-20T10:32:16.578019+00:00",
-  "run_id": "39408621908",
-  "run_url": "https://github.com/espinoza956ee-bot/My-jobs-/actions/runs/39408621908",
+  "generated_at": "2026-10-20T10:43:02.888422+00:00",
+  "run_id": "39409880933",
+  "run_url": "https://github.com/espinoza956ee-bot/My-jobs-/actions/runs/39409880933",
   "public_read_only": true,
   "market_demand_verified": false,
   "sales_verified": false,
@@ -25,10 +25,10 @@
     "research": {
       "summary": "4 AI-income categories scanned this run; buyer demand remains unverified.",
       "tasks": [
-        "AI-assisted document formatting and cleanup — External research unavailable",
         "Spreadsheet dashboards and trackers — External research unavailable",
         "Small-business workflow automation — External research unavailable",
-        "AI-assisted social media content packages — External research unavailable"
+        "AI-assisted social media content packages — External research unavailable",
+        "Printable planners and checklists — External research unavailable"
       ],
       "activity": [
         "Scanning rotating AI-income opportunities; next scheduled run will scan again",
@@ -63,7 +63,7 @@
           "access": "GitHub Actions report artifact"
         },
         {
-          "name": "equipment_inspection_attempt_1.pdf",
+          "name": "equipment_inspection_attempt_2.pdf",
           "access": "GitHub Actions report artifact"
         }
       ]
@@ -73,7 +73,7 @@
       "tasks": [
         "daily_reflection: pass, attempt 2",
         "construction_daily_log: pass, attempt 1",
-        "equipment_inspection: pass, attempt 1"
+        "equipment_inspection: pass, attempt 2"
       ],
       "activity": [
         "Attempt 1 failed: every_page_has_content; reflection_prompts_present; Not attempted",
