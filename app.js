@@ -25,5 +25,53 @@ const more=(report&&report.departments&&report.departments[selected])||null;if(m
 }}else{section(d,'Recorded work',info.facts);d.append(textNode('p','Historical report summary; live department-level reporting is not connected yet.','muted small'))}
 addLink(d,'Inspect latest GitHub run ↗',String(data.run_url||''));if(selected==='product_factory'||selected==='publishing'){d.append(textNode('p','PDF downloads are stored in AI Workforce run artifacts, not in the Publish Status workflow.','muted small'))}}
 function render(data){last=data;const states=data.departments||{};el('rooms').replaceChildren();for(const [id,emoji,name,color] of departments){const state=allowed.has(states[id])?states[id]:'blocked';const btn=document.createElement('button');btn.type='button';btn.className='room'+(selected===id?' selected':'');btn.style.setProperty('--accent',color);btn.dataset.state=state;btn.setAttribute('aria-label',name+', '+state.replaceAll('_',' '));btn.innerHTML='<div class="roomtitle"></div><div class="roomstate"></div><div class="scene"><div class="screen"></div><div class="desk"></div><div class="worker" aria-hidden="true">🤖</div></div>';btn.querySelector('.roomtitle').textContent=emoji+' '+name;btn.querySelector('.roomstate').textContent=state.replaceAll('_',' ');btn.addEventListener('click',()=>{selected=id;render(last)});el('rooms').append(btn)}el('active').textContent=Object.values(states).filter(s=>s==='working').length;el('review').textContent=Object.values(states).filter(s=>s==='pending_review').length;el('done').textContent=Object.values(states).filter(s=>s==='completed').length;detailView(data);el('updated').textContent=data.verified_at&&!isNaN(Date.parse(data.verified_at))?new Date(data.verified_at).toLocaleString():'Unknown';el('runid').textContent=String(data.run_id||'Not provided');el('source').textContent=String(data.source||'Public snapshot');el('note').textContent=String(data.note||'Latest published snapshot only.');const link=el('runlink'),url=String(data.run_url||'');if(/^https:\/\/github\.com\/espinoza956ee-bot\/My-jobs-\/actions\/runs\/\d+$/.test(url)){link.href=url;link.hidden=false}else{link.hidden=true;link.removeAttribute('href')}}
-async function load(){el('connection').textContent='UPDATING';try{const response=await fetch('./status.json?ts='+Date.now(),{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);const data=await response.json();if(!data||typeof data.departments!=='object'||data.departments===null)throw Error('Invalid snapshot');try{const extra=await fetch('./office_report.json?ts='+Date.now(),{cache:'no-store'});report=extra.ok?await extra.json():null}catch(_){report=null}render(data);el('connection').textContent='SNAPSHOT LOADED';el('connection').style.borderColor='#4bbf9a'}catch(err){el('connection').textContent='DATA UNAVAILABLE';el('connection').style.borderColor='#dd7b7b';if(!last){render({departments:{},note:'No published status.json found. The dashboard does not invent worker activity.'});el('note').textContent='Unable to load status.json: '+err.message}}}
+async function load(){el('connection').textContent='UPDATING';try{const response=await fetch('./status.json?ts='+Date.now(),{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);const data=await response.json();if(!data||typeof data.departments!=='object'||data.departments===null)throw Error('Invalid snapshot');try{const extra=await fetch('./office_report.json?ts='+Date.now(),{cache:'no-store'});report=extra.ok?await extra.json():null}catch(_){report=null}render(data);renderProductLibrary();el('connection').textContent='SNAPSHOT LOADED';el('connection').style.borderColor='#4bbf9a'}catch(err){el('connection').textContent='DATA UNAVAILABLE';el('connection').style.borderColor='#dd7b7b';if(!last){render({departments:{},note:'No published status.json found. The dashboard does not invent worker activity.'});el('note').textContent='Unable to load status.json: '+err.message}}}
 el('refresh').addEventListener('click',load);load();setInterval(load,60000);
+
+/* Private local PDF viewer: file bytes never leave this browser. */
+const libraryProducts=[
+  {id:'daily_reflection',name:'Daily Reflection Journal',icon:'📖',hint:'daily_reflection_journal'},
+  {id:'construction_daily_log',name:'Construction Daily Log',icon:'🏗️',hint:'construction_daily_log'},
+  {id:'equipment_inspection',name:'Equipment Inspection Log',icon:'🛡️',hint:'equipment_inspection'}
+];
+let privatePdfUrl=null;
+function closePrivatePdf(){
+  const frame=el('pdf-frame');if(frame)frame.removeAttribute('src');
+  const a=el('open-pdf');if(a)a.removeAttribute('href');
+  if(privatePdfUrl){URL.revokeObjectURL(privatePdfUrl);privatePdfUrl=null}
+  el('pdf-viewer').hidden=true;
+}
+function openPrivatePdf(file,product){
+  if(!file)return;
+  if(file.type!=='application/pdf'&&!file.name.toLowerCase().endsWith('.pdf')){alert('Choose a PDF file extracted from the AI Workforce artifact.');return}
+  if(file.size>60*1024*1024){alert('This PDF is too large for the mobile preview (60 MB limit).');return}
+  closePrivatePdf();
+  privatePdfUrl=URL.createObjectURL(file);
+  el('pdf-title').textContent=product.name+' — '+file.name;
+  el('open-pdf').href=privatePdfUrl;
+  el('pdf-frame').src=privatePdfUrl+'#toolbar=1&navpanes=0';
+  el('pdf-viewer').hidden=false;
+  el('pdf-viewer').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function renderProductLibrary(){
+  const host=el('product-cards');if(!host)return;
+  host.replaceChildren();
+  const fileRecords=(report&&report.departments&&report.departments.product_factory&&report.departments.product_factory.files)||[];
+  for(const product of libraryProducts){
+    const card=document.createElement('article');card.className='product-card';
+    card.append(textNode('strong',product.icon+' '+product.name));
+    const fileRecord=fileRecords.find(x=>typeof x==='object'&&String(x.name||'').includes(product.hint));
+    card.append(textNode('p',fileRecord?String(fileRecord.name):'PDF not listed in latest report','muted small'));
+    card.append(textNode('p','Private draft · Owner review required','small'));
+    const label=document.createElement('label');label.className='file-select';label.textContent='Select PDF to view';
+    const input=document.createElement('input');input.type='file';input.accept='.pdf,application/pdf';
+    input.setAttribute('aria-label','Select local PDF for '+product.name);
+    input.addEventListener('change',()=>{const f=input.files&&input.files[0];if(f)openPrivatePdf(f,product);input.value=''});
+    label.append(input);card.append(label);
+    host.append(card);
+  }
+  const link=el('library-run');
+  const run=String((report&&report.run_url)||(last&&last.run_url)||'');
+  if(/^https:\/\/github\.com\/espinoza956ee-bot\/My-jobs-\/actions\/runs\/\d+$/.test(run))link.href=run;
+}
+el('close-pdf').addEventListener('click',closePrivatePdf);
