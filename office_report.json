@@ -1,32 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-21T10:09:33.702623+00:00",
-  "run_id": "39582489577",
-  "run_url": "https://github.com/espinoza956ee-bot/My-jobs-/actions/runs/39582489577",
+  "generated_at": "2026-10-21T10:14:10.176794+00:00",
+  "run_id": "39583055865",
+  "run_url": "https://github.com/espinoza956ee-bot/My-jobs-/actions/runs/39583055865",
   "public_read_only": true,
   "market_demand_verified": false,
   "sales_verified": false,
   "owner_approval_backend_connected": false,
   "departments": {
     "manager": {
-      "summary": "Internal QC: 0/3 product drafts. External approval is not granted.",
+      "summary": "Internal QC: 3/3 product drafts. External approval is not granted.",
       "tasks": [
         "Decision: BLOCKED_PENDING_PREMIUM_QC_AND_MARKETPLACE_READINESS",
         "Market demand verified: No",
         "Publication and spending require owner authorization",
-        "Blocker: daily_reflection: internal QC failed",
-        "Blocker: construction_daily_log: internal QC failed",
-        "Blocker: equipment_inspection: internal QC failed",
         "Blocker: Public catalog research unavailable",
         "Tracked product work orders: 3",
-        "Daily Reflection — blocked_rework_required",
-        "Construction Daily Log — blocked_rework_required",
-        "Equipment Inspection — blocked_rework_required"
+        "Daily Reflection — internal_qc_passed_release_blocked",
+        "Construction Daily Log — internal_qc_passed_release_blocked",
+        "Equipment Inspection — internal_qc_passed_release_blocked"
       ],
       "activity": [
         "Assigned and reviewed 3 product work orders",
-        "Manager completed internal review; owner-only external actions locked",
-        "Drafts require automated rework and complete QC before publication"
+        "Manager completed internal review; owner-only external actions locked"
       ],
       "files": []
     },
@@ -42,6 +38,9 @@
         "Marketplace & Competitor Researcher: 3 topics, 9 public-source signals; buyer demand not verified"
       ],
       "activity": [
+        "Marketplace & Competitor Researcher checking public sources",
+        "Three research specialists reported; see research_team.json",
+        "Scanning rotating AI-income opportunities; next scheduled run will scan again",
         "Checked 4 rotating AI-income ideas; will repeat on next scheduled run",
         "Checking public catalog signals for product ideas",
         "Catalog research: 0/3 queries succeeded",
@@ -53,54 +52,49 @@
     "product_factory": {
       "summary": "3 product drafts recorded; PDFs are available only through GitHub run artifacts.",
       "tasks": [
-        "daily_reflection — QC not passed",
-        "construction_daily_log — QC not passed",
-        "equipment_inspection — QC not passed",
-        "Daily Reflection — Product Factory: revise design; QC: rerun full review; Manager: reassess",
-        "Construction Daily Log — Product Factory: revise design; QC: rerun full review; Manager: reassess",
-        "Equipment Inspection — Product Factory: revise design; QC: rerun full review; Manager: reassess"
+        "daily_reflection — internal QC passed",
+        "construction_daily_log — internal QC passed",
+        "equipment_inspection — internal QC passed",
+        "Daily Reflection — Manager: hold for marketplace readiness and owner approval",
+        "Construction Daily Log — Manager: hold for marketplace readiness and owner approval",
+        "Equipment Inspection — Manager: hold for marketplace readiness and owner approval"
       ],
       "activity": [
         "Building three separate product drafts",
         "Creating journal draft",
         "Reworking journal using QC feedback",
-        "Reworking journal using QC feedback",
-        "Internal QC did not pass after retry limit",
-        "0/3 product drafts passed internal QC"
+        "Manager accepted internal QC; publication not authorized",
+        "3/3 product drafts passed internal QC"
       ],
       "files": [
         {
-          "name": "daily_reflection_journal_attempt_3.pdf",
+          "name": "daily_reflection_journal_attempt_2.pdf",
           "access": "GitHub Actions report artifact"
         },
         {
-          "name": "construction_daily_log_attempt_3.pdf",
+          "name": "construction_daily_log_attempt_1.pdf",
           "access": "GitHub Actions report artifact"
         },
         {
-          "name": "equipment_inspection_attempt_3.pdf",
+          "name": "equipment_inspection_attempt_1.pdf",
           "access": "GitHub Actions report artifact"
         }
       ]
     },
     "quality_control": {
-      "summary": "0/3 product drafts passed internal QC; not a full-page or marketplace compliance audit.",
+      "summary": "3/3 product drafts passed internal QC; not a full-page or marketplace compliance audit.",
       "tasks": [
-        "daily_reflection: not passed, attempt 3",
-        "construction_daily_log: not passed, attempt 3",
-        "equipment_inspection: not passed, attempt 3",
-        "Daily Reflection: no_draft_label",
-        "Daily Reflection: Not attempted",
-        "Construction Daily Log: no_draft_label",
-        "Equipment Inspection: no_draft_label"
+        "daily_reflection: pass, attempt 2",
+        "construction_daily_log: pass, attempt 1",
+        "equipment_inspection: pass, attempt 1"
       ],
       "activity": [
-        "Attempt 2 failed: no_draft_label; Not attempted",
-        "Structural and visual checks, attempt 3",
-        "Attempt 3 failed: no_draft_label; Not attempted",
+        "Attempt 1 failed: every_page_has_content; reflection_prompts_present; Not attempted",
+        "Structural and visual checks, attempt 2",
+        "Structural and sampled visual QC passed",
         "Reviewing construction_daily_log",
         "Reviewing equipment_inspection",
-        "0/3 products passed internal QC",
+        "3/3 products passed internal QC",
         "Premium marketplace readiness target: 90/100; score not yet verified",
         "Full-page review, rights, current platform policies, and market validation still required"
       ],
