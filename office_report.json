@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-21T03:01:05.049674+00:00",
-  "run_id": "39536211804",
-  "run_url": "https://github.com/espinoza956ee-bot/My-jobs-/actions/runs/39536211804",
+  "generated_at": "2026-10-21T03:10:21.927061+00:00",
+  "run_id": "39537086403",
+  "run_url": "https://github.com/espinoza956ee-bot/My-jobs-/actions/runs/39537086403",
   "public_read_only": true,
   "market_demand_verified": false,
   "sales_verified": false,
@@ -17,9 +17,14 @@
         "Blocker: daily_reflection: internal QC failed",
         "Blocker: construction_daily_log: internal QC failed",
         "Blocker: equipment_inspection: internal QC failed",
-        "Blocker: Public catalog research unavailable"
+        "Blocker: Public catalog research unavailable",
+        "Tracked product work orders: 3",
+        "Daily Reflection — blocked_rework_required",
+        "Construction Daily Log — blocked_rework_required",
+        "Equipment Inspection — blocked_rework_required"
       ],
       "activity": [
+        "Assigned and reviewed 3 product work orders",
         "Manager completed internal review; owner-only external actions locked",
         "Drafts require automated rework and complete QC before publication"
       ],
@@ -37,7 +42,6 @@
         "Marketplace & Competitor Researcher: 3 topics, 8 public-source signals; buyer demand not verified"
       ],
       "activity": [
-        "Scanning rotating AI-income opportunities; next scheduled run will scan again",
         "Checked 4 rotating AI-income ideas; will repeat on next scheduled run",
         "Checking public catalog signals for product ideas",
         "Catalog research: 0/3 queries succeeded",
@@ -51,7 +55,10 @@
       "tasks": [
         "daily_reflection — QC not passed",
         "construction_daily_log — QC not passed",
-        "equipment_inspection — QC not passed"
+        "equipment_inspection — QC not passed",
+        "Daily Reflection — Product Factory: revise design; QC: rerun full review; Manager: reassess",
+        "Construction Daily Log — Product Factory: revise design; QC: rerun full review; Manager: reassess",
+        "Equipment Inspection — Product Factory: revise design; QC: rerun full review; Manager: reassess"
       ],
       "activity": [
         "Building three separate product drafts",
@@ -81,7 +88,11 @@
       "tasks": [
         "daily_reflection: not passed, attempt 3",
         "construction_daily_log: not passed, attempt 3",
-        "equipment_inspection: not passed, attempt 3"
+        "equipment_inspection: not passed, attempt 3",
+        "Daily Reflection: no_draft_label",
+        "Daily Reflection: Not attempted",
+        "Construction Daily Log: no_draft_label",
+        "Equipment Inspection: no_draft_label"
       ],
       "activity": [
         "Attempt 2 failed: no_draft_label; Not attempted",
