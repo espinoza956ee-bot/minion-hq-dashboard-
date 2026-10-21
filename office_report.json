@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-20T23:29:54.059410+00:00",
-  "run_id": "39515380834",
-  "run_url": "https://github.com/espinoza956ee-bot/My-jobs-/actions/runs/39515380834",
+  "generated_at": "2026-10-21T03:01:05.049674+00:00",
+  "run_id": "39536211804",
+  "run_url": "https://github.com/espinoza956ee-bot/My-jobs-/actions/runs/39536211804",
   "public_read_only": true,
   "market_demand_verified": false,
   "sales_verified": false,
@@ -28,13 +28,13 @@
     "research": {
       "summary": "4 AI-income categories scanned this run; buyer demand remains unverified.",
       "tasks": [
-        "Spreadsheet dashboards and trackers — External research unavailable",
         "Small-business workflow automation — External research unavailable",
         "AI-assisted social media content packages — External research unavailable",
         "Printable planners and checklists — External research unavailable",
+        "AI-assisted study guides and worksheets — External research unavailable",
         "Customer Needs Researcher: 3 topics, 14 public-source signals; buyer demand not verified",
         "AI Income & Opportunities Researcher: 3 topics, 15 public-source signals; buyer demand not verified",
-        "Marketplace & Competitor Researcher: 3 topics, 9 public-source signals; buyer demand not verified"
+        "Marketplace & Competitor Researcher: 3 topics, 8 public-source signals; buyer demand not verified"
       ],
       "activity": [
         "Scanning rotating AI-income opportunities; next scheduled run will scan again",
@@ -131,6 +131,17 @@
       "activity": [
         "Preparing service offers; no employment-job search",
         "Three service offers prepared; no clients found"
+      ],
+      "files": []
+    },
+    "freelance_work": {
+      "summary": "0 client assignments tracked; external delivery requires owner approval.",
+      "tasks": [
+        "No approved client jobs queued; no work or customers invented."
+      ],
+      "activity": [
+        "Checking approved freelance job queue",
+        "Freelance board: 0 jobs; 0 approved scopes pending actual work"
       ],
       "files": []
     }
