@@ -15,7 +15,9 @@ class Station extends Phaser.Scene{
  constructor(){super('Station')}
  create(){
  sceneRef=this;const g=this.add.graphics();
- block(g,0,0,640,448,0x091316);
+ block(g,0,0,640,448,0x05090f);
+ for(let n=0;n<100;n++){const sx=(n*137+19)%640,sy=(n*89+43)%448;block(g,sx,sy,n%9===0?2:1,n%9===0?2:1,n%4===0?0x698ca0:0x324a63,.6)}
+ block(g,8,16,624,417,0x0c151b,.8);
  for(let x=8;x<632;x+=16)for(let y=8;y<440;y+=16){
  block(g,x,y,15,15,(x+y)%32?0x263a35:0x2c4039);
  block(g,x,y,15,1,0x41564a,.65);block(g,x,y,1,15,0x152723,.7);
@@ -23,22 +25,34 @@ class Station extends Phaser.Scene{
  block(g,218,188,208,73,0x43554b);
  for(let x=225;x<425;x+=24){block(g,x,197,9,4,0x9fbf9e);block(g,x,248,9,4,0xc4a06c)}
  rooms.forEach(([id,name,x,y,w,h,color],i)=>{
+ block(g,x-10,y-10,w+20,h+20,0x05090c);
+ block(g,x-8,y-8,w+16,h+16,0x354149);
  block(g,x-5,y-5,w+10,h+10,0x101a1b);
- block(g,x,y,w,h,0x243a33);
- for(let a=x+6;a<x+w-6;a+=16)for(let b=y+6;b<y+h-6;b+=16)block(g,a,b,15,15,(a+b)%32?0x2b4036:0x30473d);
+ for(let k=0;k<Math.floor(w/22);k++){block(g,x+k*22,y-9,14,3,0x55636a);block(g,x+k*22,y+h+5,14,3,0x55636a)}
+ for(let k=0;k<Math.floor(h/22);k++){block(g,x-9,y+k*22,3,14,0x55636a);block(g,x+w+5,y+k*22,3,14,0x55636a)}
+ block(g,x,y,w,h,0x1b2428);
+ for(let a=x+6;a<x+w-6;a+=16)for(let b=y+6;b<y+h-6;b+=16)block(g,a,b,15,15,(a+b)%32?0x283034:0x30363a);
  block(g,x-5,y-5,w+10,6,0x7d9185);block(g,x-5,y-5,6,h+10,0x7d9185);
  block(g,x+w-1,y-5,6,h+10,0x7d9185);block(g,x-5,y+h-1,w+10,6,0x7d9185);
- block(g,x+8,y+8,w-16,17,0x102420);
+ block(g,x+8,y+8,w-16,17,0x0a141b);
+ block(g,x+10,y+29,w-20,1,0x57666a);
+ for(let px=x+10;px<x+w-10;px+=32)for(let py=y+32;py<y+h-16;py+=32){block(g,px,py,2,2,0x66706b,.7);block(g,px+24,py+24,2,2,0x66706b,.5)}
  this.add.text(x+13,y+12,name,{fontFamily:'monospace',fontSize:'10px',color:'#b8e9d0'});
  for(let n=0;n<3;n++){block(g,x+14+n*15,y+32,12,21,0x172b29);block(g,x+17+n*15,y+35,6,11,color)}
  for(let n=0;n<3;n++){block(g,x+w-24,y+36+n*18,14,14,0x3c5750);block(g,x+w-20,y+39+n*18,7,5,0x77bb9c)}
  block(g,x+w/2-24,y+52,48,12,0x776d56);
  block(g,x+w/2-20,y+35,40,20,0x13262a);
- block(g,x+w/2-16,y+38,32,13,color,.75);
+ block(g,x+w/2-16,y+38,32,13,color,.5);
+ for(let line=0;line<3;line++)block(g,x+w/2-13,y+40+line*4,24-line*5,1,0xb2f6c7,.85);
  block(g,x+w/2-18,y+66,36,8,0x615d50);
  block(g,x+14,y+h-40,27,23,0x665e4c);
  block(g,x+18,y+h-36,19,15,0x948360);
- block(g,x+w-42,y+h-41,28,24,0x3a5c50);
+ block(g,x+w-42,y+h-41,28,24,0x34464b);
+ block(g,x+w-39,y+h-38,22,3,0x748782);
+ block(g,x+w-39,y+h-31,22,3,0x748782);
+ block(g,x+w/2-17,y+h-5,34,11,0x0c1519);
+ block(g,x+w/2-13,y+h-3,26,6,0x64757a);
+ block(g,x+w/2-2,y+h-3,4,6,0xc9a563);
  const status=this.add.text(x+12,y+h-18,'WAITING',{fontFamily:'monospace',fontSize:'9px',color:'#b8cfc0'});
  const worker=this.add.container(x+w/2,y+96);
  const body=this.add.graphics();
