@@ -16,3 +16,5 @@
 .starstation{border-color:#82968a;background:#080f12}
 .game-viewport{max-width:1100px;margin:auto;box-shadow:0 0 0 3px #172b26,0 0 38px #2a8e6440}
 @media(max-width:850px){.layout>.side{grid-template-columns:1fr}.layout>.side .office-panel{grid-column:auto}}
+
+#phaser-station{width:100%;max-width:1100px;margin:0 auto;image-rendering:pixelated}#phaser-station canvas{display:block;max-width:100%;height:auto;margin:auto;image-rendering:pixelated}#station-canvas[hidden],#phaser-station[hidden]{display:none}.game-controls{display:flex;gap:8px;align-items:center;justify-content:flex-end;margin:6px 0 12px;font:11px monospace;color:#a8d7bf}.game-controls button{background:#203b34;border:1px solid #618978;color:#d4f3dd;border-radius:6px;padding:7px 12px;font-size:15px}.game-controls span{margin-right:auto}.game-viewport:fullscreen{display:flex;align-items:center;background:#091316}
