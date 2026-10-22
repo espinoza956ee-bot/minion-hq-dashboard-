@@ -3,7 +3,7 @@ import * as THREE from 'https://esm.sh/three@0.169.0';
 const host=document.querySelector('.game-viewport'), fallback=document.getElementById('station-canvas');
 if(host&&fallback){
 try{
-const scene=new THREE.Scene();scene.background=new THREE.Color(0x070d35);scene.fog=new THREE.FogExp2(0x0b1044,.008);
+const scene=new THREE.Scene();scene.background=new THREE.Color(0x070d35);scene.fog=new THREE.FogExp2(0x0b1044,.00035);
 const camera=new THREE.PerspectiveCamera(42,1,1,1400);
 const renderer=new THREE.WebGLRenderer({antialias:true,alpha:false,powerPreference:'default'});
 renderer.setPixelRatio(Math.min(devicePixelRatio,1.6));renderer.outputColorSpace=THREE.SRGBColorSpace;
@@ -13,7 +13,7 @@ renderer.domElement.style.cssText='display:block;width:100%;height:100%;touch-ac
 host.append(renderer.domElement);fallback.style.display='none';
 const ambient=new THREE.HemisphereLight(0x7caaff,0x1c0b35,2.2);scene.add(ambient);
 const sun=new THREE.DirectionalLight(0xb1d8ff,2.8);sun.position.set(-100,190,120);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);sun.shadow.camera.left=-320;sun.shadow.camera.right=320;sun.shadow.camera.top=320;sun.shadow.camera.bottom=-320;scene.add(sun);
-const neon=(c,p=1.8)=>new THREE.MeshStandardMaterial({color:c,emissive:c,emissiveIntensity:p,metalness:.3,roughness:.3});
+const neon=(c,p=1.8)=>new THREE.MeshBasicMaterial({color:c,toneMapped:false});
 const mat=(c,m=.25,r=.5)=>new THREE.MeshStandardMaterial({color:c,metalness:m,roughness:r});
 const asphalt=mat(0x141b48),sidewalk=mat(0x252a60),lawn=mat(0x102d3c),glass=neon(0x18bfff,.85);
 const cube=(parent,w,h,d,m,x=0,y=0,z=0)=>{const o=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m);o.position.set(x,y,z);o.castShadow=true;o.receiveShadow=true;parent.add(o);return o};
@@ -66,7 +66,7 @@ function tree(x,z,s=1){const g=new THREE.Group();g.position.set(x,0,z);scene.add
 for(let x=-340;x<=340;x+=27)for(let z=-245;z<=245;z+=28){if(Math.abs(x)<24||Math.abs(z)<23||Math.abs(z-195)<20||Math.abs(z+195)<20||Math.abs(x-220)<18||Math.abs(x+220)<18)continue;if(configs.some(b=>Math.abs(x-b.x)<b.w/2+23&&Math.abs(z-b.z)<b.d/2+23))continue;if((Math.floor(x*13+z*7)%4+4)%4===0)tree(x,z,.65+((x+z+800)%4)*.09)}
 for(let x=-320;x<=320;x+=50)for(const z of [-32,32,177,213,-177,-213]){const pole=cube(scene,1.5,19,1.5,mat(0x6073a1),x,10,z);const bulb=new THREE.Mesh(new THREE.SphereGeometry(3.5,8,8),neon(0x8eeaff,2));bulb.position.set(x,21,z);scene.add(bulb)}
 const stars=new THREE.BufferGeometry(),pts=[];for(let i=0;i<450;i++)pts.push((Math.random()-.5)*1100,90+Math.random()*480,(Math.random()-.5)*1100);stars.setAttribute('position',new THREE.Float32BufferAttribute(pts,3));scene.add(new THREE.Points(stars,new THREE.PointsMaterial({color:0x9a9cff,size:1.4})));
-let azimuth=.65,elevation=.83,distance=690,target=new THREE.Vector3(0,32,0),down=null;
+let azimuth=.65,elevation=.83,distance=590,target=new THREE.Vector3(0,32,0),down=null;
 function updateCamera(){const ce=Math.cos(elevation);camera.position.set(target.x+distance*Math.sin(azimuth)*ce,target.y+distance*Math.sin(elevation),target.z+distance*Math.cos(azimuth)*ce);camera.lookAt(target)}
 function resize(){const w=host.clientWidth||640,h=host.clientHeight||460;camera.aspect=w/h;camera.updateProjectionMatrix();renderer.setSize(w,h,false)}new ResizeObserver(resize).observe(host);resize();updateCamera();
 const ray=new THREE.Raycaster(),pointer=new THREE.Vector2();
