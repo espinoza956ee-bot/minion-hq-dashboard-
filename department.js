@@ -18,7 +18,7 @@ function empty(id,text){const el=document.createElement('li');el.className='empt
 const params=new URLSearchParams(location.search);
 let id=params.get('dept')||'manager';
 if(!Object.prototype.hasOwnProperty.call(meta,id))id='manager';
-const m=meta[id];document.documentElement.style.setProperty('--accent',m.color);
+const m=meta[id];if(id==='manager')$('workflow-control').hidden=false;document.documentElement.style.setProperty('--accent',m.color);
 document.title='MINION HQ · '+m.title;
 $('dept-name').textContent=m.title;$('dept-subtitle').textContent=m.subtitle;$('dept-icon').textContent=m.icon;
 $('dept-mission').textContent=m.mission;$('crumb').textContent=m.title;
