@@ -18,3 +18,9 @@
 @media(max-width:850px){.layout>.side{grid-template-columns:1fr}.layout>.side .office-panel{grid-column:auto}}
 
 #phaser-station{width:100%;max-width:1100px;margin:0 auto;image-rendering:pixelated}#phaser-station canvas{display:block;max-width:100%;height:auto;margin:auto;image-rendering:pixelated}#station-canvas[hidden],#phaser-station[hidden]{display:none}.game-controls{display:flex;gap:8px;align-items:center;justify-content:flex-end;margin:6px 0 12px;font:11px monospace;color:#a8d7bf}.game-controls button{background:#203b34;border:1px solid #618978;color:#d4f3dd;border-radius:6px;padding:7px 12px;font-size:15px}.game-controls span{margin-right:auto}.game-viewport:fullscreen{display:flex;align-items:center;background:#091316}
+
+/* True 3D viewport: WebGL fills a stable landscape scene on mobile and desktop. */
+.game-viewport{height:clamp(420px,65vw,720px);position:relative;border:1px solid #316a9a;border-radius:10px;overflow:hidden;background:#070d35}
+.game-viewport>canvas:not(#station-canvas){width:100%!important;height:100%!important;image-rendering:auto;touch-action:none}
+.game-viewport:fullscreen{display:block;width:100vw;height:100dvh;max-width:none;border:0;border-radius:0}
+@media(max-width:700px){.game-viewport{height:490px}.starstation{padding:8px}.stationtop{font-size:10px}}
