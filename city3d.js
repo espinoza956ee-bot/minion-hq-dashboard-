@@ -52,11 +52,11 @@ for(let x=-b.w/2+8;x<=b.w/2-8;x+=b.w-16)for(let z=-b.d/2+8;z<=b.d/2-8;z+=b.d-16)
 cube(group,17,21,1,neon(0x48eaff,.8),0,13,b.d/2+.7);
 for(let x=-b.w/2+9;x<b.w/2-5;x+=17)cube(group,8,3,8,mat(0x364f77),x,b.h+8,0);
 if(b.id==='manager'){
-cube(group,18,22,18,mat(0x183e80),0,b.h+17,0);
-const beacon=new THREE.Mesh(new THREE.IcosahedronGeometry(12,1),neon(0x27eaff,2.4));beacon.position.y=b.h+37;group.add(beacon);b.beacon=beacon;
-const light=new THREE.PointLight(0x27eaff,75,125);light.position.set(0,b.h+35,0);group.add(light);
+cube(group,42,24,40,mat(0x114a9b,.6,.2),0,b.h+17,0);cube(group,34,3,34,neon(0x18e9ff),0,b.h+31,0);cube(group,18,22,18,mat(0x183e80),0,b.h+43,0);
+const beacon=new THREE.Mesh(new THREE.IcosahedronGeometry(12,1),neon(0x27eaff,2.4));beacon.position.y=b.h+66;group.add(beacon);b.beacon=beacon;
+const light=new THREE.PointLight(0x27eaff,75,125);light.position.set(0,b.h+62,0);group.add(light);
 }
-const sign=label(b.name);sign.position.set(0,b.h+30,0);group.add(sign);
+const sign=label(b.name);sign.position.set(0,b.h+(b.id==='manager'?103:38),0);group.add(sign);
 const marker=new THREE.Mesh(new THREE.SphereGeometry(3.2,12,8),neon(statusColors.idle));marker.position.set(0,b.h+17,0);group.add(marker);
 b.marker=marker;b.group=group;buildings.push(b);
 group.traverse(o=>{if(o.isMesh){o.userData.department=b.id;pickables.push(o)}});
@@ -79,7 +79,7 @@ document.getElementById('zoom-in')?.addEventListener('click',()=>{distance=Math.
 document.getElementById('zoom-out')?.addEventListener('click',()=>{distance=Math.min(1050,distance*1.2);updateCamera()});
 window.update3DCityStates=s=>{statuses=s||{};for(const b of buildings){const color=statusColors[statuses[b.id]]||statusColors.blocked;b.marker.material=neon(color,1.2)}};
 if(window.__minionSnapshotStates)window.update3DCityStates(window.__minionSnapshotStates);
-let t=0;function animate(){requestAnimationFrame(animate);t+=.01;for(const b of buildings){if(b.beacon){b.beacon.rotation.y+=.009;b.beacon.position.y=b.h+37+Math.sin(t)*2}}renderer.render(scene,camera)}animate();
+let t=0;function animate(){requestAnimationFrame(animate);t+=.01;for(const b of buildings){if(b.beacon){b.beacon.rotation.y+=.009;b.beacon.position.y=b.h+66+Math.sin(t)*2}}renderer.render(scene,camera)}animate();
 window.__minion3D=true;
 }catch(err){console.error('3D city unavailable; retaining 2D fallback',err);fallback.style.display='block'}
 }
