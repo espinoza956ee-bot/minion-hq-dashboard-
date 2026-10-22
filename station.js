@@ -19,7 +19,7 @@ function screen(x,y,c,lit){rect(x-18,y-12,36,23,'#060f14');rect(x-15,y-9,30,16,l
 function worker(x,y,c,active,i){let bob=active?Math.sin(phase/16+i*2)*2:0;rect(x-7,y+12,14,5,'#05090d');rect(x-5,y+3+bob,10,10,c);rect(x-5,y-7+bob,10,10,'#b5c4c3');rect(x-3,y-4+bob,2,2,'#111b20');rect(x+2,y-4+bob,2,2,'#111b20');rect(x-7,y+3+bob,3,9,'#5a6d70');rect(x+4,y+3+bob,3,9,'#5a6d70')}
 function drawRoom(r,i){
 const s=states[r.id]||'blocked',active=s==='working';
-rect(r.x-6,r.y-6,r.w+12,r.h+12,'#56666a');rect(r.x-3,r.y-3,r.w+6,r.h+6,'#172127');rect(r.x,r.y,r.w,r.h,'#172322');
+rect(r.x-6,r.y-6,r.w+12,r.h+12,'#56666a');rect(r.x-3,r.y-3,r.w+6,r.h+6,'#172127');rect(r.x,r.y,r.w,r.h,'#172322');for(let yy=r.y+36;yy<r.y+r.h-12;yy+=29){rect(r.x+5,yy,8,22,'#61747a');rect(r.x+r.w-13,yy,8,22,'#61747a')}
 for(let x=r.x+12;x<r.x+r.w;x+=24)for(let y=r.y+34;y<r.y+r.h;y+=24){rect(x,y,22,22,((x+y)/24|0)%2?'#202d2a':'#1d2827');rect(x+20,y+20,2,2,'#2f403a')}
 for(let x=r.x+5;x<r.x+r.w-5;x+=28){rect(x,r.y+3,22,6,'#394846');rect(x,r.y+r.h-8,22,6,'#394846')}
 for(let y=r.y+10;y<r.y+r.h-8;y+=28){rect(r.x+2,y,6,21,'#455352');rect(r.x+r.w-8,y,6,21,'#455352')}
@@ -27,7 +27,7 @@ rect(r.x+10,r.y+9,r.w-20,22,'#071314');rect(r.x+10,r.y+29,r.w-20,2,r.color);
 text(r.name,r.x+19,r.y+25,r.color,13);rect(r.x+r.w-25,r.y+15,9,9,stateColor(s));
 const usable=r.h-55;const rows=usable<95?1:2;const count=rows===1?3:6;
 for(let n=0;n<count;n++){const col=n%3,row=Math.floor(n/3),px=r.x+53+col*(r.w-106)/2,py=r.y+60+row*72;
-rect(px-29,py+16,58,15,'#39413b');rect(px-27,py+14,54,5,'#6d6352');screen(px,py,r.color,active||s==='completed');worker(px+22,py+25,r.color,active,n+i)}
+rect(px-31,py+14,62,19,'#101a20');rect(px-29,py+16,58,15,'#39413b');rect(px-27,py+14,54,5,'#6d6352');screen(px,py,r.color,active||s==='completed');worker(px+22,py+25,r.color,active,n+i)}
 if(r.id==='manager'){rect(r.x+r.w/2-30,r.y+r.h-34,60,14,'#715a3c');rect(r.x+r.w/2-20,r.y+r.h-40,40,6,'#a88b5c')}
 if(selected===r.id){ctx.strokeStyle=r.color;ctx.lineWidth=4;ctx.strokeRect(r.x-7,r.y-7,r.w+14,r.h+14)}
 }
