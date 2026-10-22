@@ -3,11 +3,11 @@ import * as THREE from 'https://esm.sh/three@0.169.0';
 const host=document.querySelector('.game-viewport'), fallback=document.getElementById('station-canvas');
 if(host&&fallback){
 try{
-const scene=new THREE.Scene();scene.background=new THREE.Color(0x070d35);scene.fog=new THREE.FogExp2(0x0b1044,.00035);
+const scene=new THREE.Scene();scene.background=new THREE.Color(0x100649);scene.fog=new THREE.FogExp2(0x0b1044,.00035);
 const camera=new THREE.PerspectiveCamera(42,1,1,1400);
 const renderer=new THREE.WebGLRenderer({antialias:true,alpha:false,powerPreference:'default'});
 renderer.setPixelRatio(Math.min(devicePixelRatio,1.6));renderer.outputColorSpace=THREE.SRGBColorSpace;
-renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.35;
+renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.65;
 renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
 renderer.domElement.style.cssText='display:block;width:100%;height:100%;touch-action:none;cursor:grab';
 host.append(renderer.domElement);fallback.style.display='none';
@@ -17,8 +17,8 @@ const neon=(c,p=1.8)=>new THREE.MeshBasicMaterial({color:c,toneMapped:false});
 const mat=(c,m=.25,r=.5)=>new THREE.MeshStandardMaterial({color:c,metalness:m,roughness:r});
 const asphalt=mat(0x141b48),sidewalk=mat(0x252a60),lawn=mat(0x102d3c),glass=neon(0x18bfff,.85);
 const cube=(parent,w,h,d,m,x=0,y=0,z=0)=>{const o=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m);o.position.set(x,y,z);o.castShadow=true;o.receiveShadow=true;parent.add(o);return o};
-const ground=new THREE.Mesh(new THREE.PlaneGeometry(800,800),mat(0x140e46));ground.rotation.x=-Math.PI/2;ground.receiveShadow=true;scene.add(ground);
-const grid=new THREE.GridHelper(780,52,0x31458a,0x232658);grid.position.y=.08;scene.add(grid);
+const ground=new THREE.Mesh(new THREE.PlaneGeometry(800,800),mat(0x381268));ground.rotation.x=-Math.PI/2;ground.receiveShadow=true;scene.add(ground);
+const grid=new THREE.GridHelper(850,34,0x3e47a8,0x34266c);grid.position.y=.08;scene.add(grid);
 const road=(x,z,w,d)=>{cube(scene,w,.24,d,asphalt,x,.18,z);cube(scene,w-.8,.06,.32,neon(0xb342ff,.55),x,.35,z);for(let t=-Math.floor((w||d)/2)+10;t<(w||d)/2;t+=20){if(w>d)cube(scene,7,.06,.5,mat(0x5b7db7),x+t,.37,z);else cube(scene,.5,.06,7,mat(0x5b7db7),x,.37,z+t)}};
 road(0,0,650,21);road(0,0,22,560);for(const z of [-195,195])road(0,z,610,16);for(const x of [-220,220])road(x,0,15,520);
 const configs=[
