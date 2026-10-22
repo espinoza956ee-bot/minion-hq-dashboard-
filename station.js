@@ -33,7 +33,7 @@ if(selected===r.id){ctx.strokeStyle=r.color;ctx.lineWidth=4;ctx.strokeRect(r.x-7
 }
 function corridor(x,y,w,h){rect(x,y,w,h,'#303c3b');for(let xx=x;xx<x+w;xx+=25)for(let yy=y;yy<y+h;yy+=25){ctx.strokeStyle='#4b5956';ctx.lineWidth=1;ctx.strokeRect(xx,yy,25,25)}}
 function draw(){
-phase++;rect(0,0,W,H,'#050b10');for(let i=0;i<80;i++){let x=(i*157)%W,y=(i*83)%H;rect(x,y,1,1,'#45616a')}
+phase++;ctx.setTransform(1,0,0,1,0,0);rect(0,0,W,H,'#050b10');ctx.setTransform(zoom,0,0,zoom,panX*zoom,panY*zoom);for(let i=0;i<80;i++){let x=(i*157)%W,y=(i*83)%H;rect(x,y,1,1,'#45616a')}
 corridor(297,105,66,390);corridor(605,105,58,390);corridor(297,242,366,75);
 rooms.forEach(drawRoom);
 for(const r of rooms){let s=states[r.id]||'blocked';text(s.replaceAll('_',' ').toUpperCase(),r.x+15,r.y+r.h-13,stateColor(s),10)}
@@ -46,10 +46,6 @@ canvas.addEventListener('pointerdown',e=>{drag={x:e.clientX,y:e.clientY,px:panX,
 canvas.addEventListener('pointermove',e=>{if(!drag)return;let dx=e.clientX-drag.x,dy=e.clientY-drag.y;if(Math.abs(dx)+Math.abs(dy)>10)drag.moved=true;if(drag.moved){panX=drag.px+dx*W/canvas.getBoundingClientRect().width/zoom;panY=drag.py+dy*H/canvas.getBoundingClientRect().height/zoom}});
 canvas.addEventListener('pointerup',e=>{if(!drag)return;if(!drag.moved){let p=point(e),r=rooms.find(r=>p.x>=r.x&&p.x<=r.x+r.w&&p.y>=r.y&&p.y<=r.y+r.h);if(r){selected=r.id;window.selectStationDepartment?.(r.id)}}drag=null});
 function resizeTransform(){ctx.setTransform(zoom,0,0,zoom,panX*zoom,panY*zoom)}
-const origDraw=draw; // transform is applied each frame below via wrapper
-// Reapply transform before each frame without accumulating scale.
-const baseClear=ctx.fillRect.bind(ctx);
-ctx.fillRect=(...args)=>baseClear(...args);
 window.updateStationStates=s=>{Object.assign(states,s||{})};
 document.getElementById('zoom-in')?.addEventListener('click',()=>{zoom=Math.min(1.6,zoom+.1);resizeTransform()});
 document.getElementById('zoom-out')?.addEventListener('click',()=>{zoom=Math.max(.7,zoom-.1);resizeTransform()});
