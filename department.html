@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#06121f">
+<title>MINION HQ — Department</title>
+<link rel="stylesheet" href="./department.css?v=20261022a">
+<script src="./department.js?v=20261022a" defer></script>
+</head>
+<body>
+<header class="topbar">
+ <a class="brand" href="./index.html#station" aria-label="Back to MINION HQ"><span class="brand-symbol">⬡</span><span><strong>MINION HQ</strong><small>AI WORKFORCE · COMMAND CENTER</small></span></a>
+ <span id="data-indicator" class="sync-indicator">LOADING RECORDS</span>
+</header>
+<main id="app">
+ <nav class="breadcrumb" aria-label="Breadcrumb"><a href="./index.html#station">← Back to station</a><span>MINION HQ / <span id="crumb">DEPARTMENT</span></span></nav>
+ <section class="intro" aria-labelledby="dept-name">
+  <div class="intro-title"><span id="dept-icon" class="dept-icon" aria-hidden="true">◈</span><div><p id="dept-subtitle" class="kicker">DEPARTMENT OPERATIONS</p><h1 id="dept-name">Loading department…</h1><p id="dept-mission" class="mission"></p></div></div>
+  <div id="status-badge" class="status" role="status">UNKNOWN</div>
+ </section>
+ <div class="stamp"><span>PUBLIC READ-ONLY SNAPSHOT · NOT LIVE</span><span>Recorded: <time id="updated-at">—</time></span></div>
+ <section class="office-view" aria-label="Department workstation interior">
+  <div class="office-heading"><span id="scene-title">DEPARTMENT OPERATIONS</span><span class="signal">● RECORDED STATUS</span></div>
+  <div class="interior" id="interior">
+   <div class="rear-wall"><div class="wall-pipe"></div><div class="wall-lights"></div><div class="main-monitor"><span id="main-monitor-label">MINION HQ</span><b>WORKSTATION CONSOLE</b><span id="main-monitor-status">REPORT LOADING</span></div><div class="wall-pipe lower"></div></div>
+   <div class="desks">
+    <div class="desk-unit"><div class="desk-monitor"><i></i><i></i><i></i></div><div class="desk-top"></div><div class="bot bot-one"><div class="bot-head"><span class="bot-eyes"></span></div><div class="bot-body"></div><div class="bot-feet"></div></div></div>
+    <div class="desk-unit"><div class="desk-monitor"><i></i><i></i><i></i></div><div class="desk-top"></div><div class="bot bot-two"><div class="bot-head"><span class="bot-eyes"></span></div><div class="bot-body"></div><div class="bot-feet"></div></div></div>
+    <div class="desk-unit"><div class="desk-monitor"><i></i><i></i><i></i></div><div class="desk-top"></div><div class="bot bot-three"><div class="bot-head"><span class="bot-eyes"></span></div><div class="bot-body"></div><div class="bot-feet"></div></div></div>
+   </div>
+   <div class="floor-grid"></div>
+   <div class="scene-foot">ILLUSTRATIVE WORKSTATIONS · INDIVIDUAL AGENT TELEMETRY NOT CONNECTED</div>
+  </div>
+ </section>
+ <section class="overview-grid" aria-label="Department summary">
+  <div class="module"><h2>MISSION REPORT</h2><p id="summary">Loading published report…</p><p class="micro" id="report-caution"></p></div>
+  <div class="module"><h2>REPORT DETAILS</h2><dl><dt>Department status</dt><dd id="status-detail">—</dd><dt>Source run</dt><dd id="run-id">—</dd><dt>Last recorded</dt><dd id="run-time">—</dd><dt>Source</dt><dd>GitHub Actions</dd></dl><a id="run-link" class="source-link" hidden target="_blank" rel="noopener noreferrer">Inspect source workflow ↗</a></div>
+ </section>
+ <section class="tabs-module" aria-labelledby="records-heading">
+  <div class="records-top"><h2 id="records-heading">RECORDED WORK</h2><span id="records-count" class="micro"></span></div>
+  <div class="tabs" role="tablist" aria-label="Department information">
+   <button role="tab" aria-selected="true" aria-controls="tasks-panel" id="tasks-tab" data-tab="tasks">Assignments <span id="tasks-count">0</span></button>
+   <button role="tab" aria-selected="false" aria-controls="activity-panel" id="activity-tab" data-tab="activity">Activity <span id="activity-count">0</span></button>
+   <button role="tab" aria-selected="false" aria-controls="files-panel" id="files-tab" data-tab="files">Outputs <span id="files-count">0</span></button>
+  </div>
+  <div id="tasks-panel" class="tab-panel" role="tabpanel" aria-labelledby="tasks-tab"><ol id="tasks" class="records"></ol></div>
+  <div id="activity-panel" class="tab-panel" role="tabpanel" aria-labelledby="activity-tab" hidden><ol id="activity" class="records timeline"></ol></div>
+  <div id="files-panel" class="tab-panel" role="tabpanel" aria-labelledby="files-tab" hidden><div id="files" class="records"></div></div>
+ </section>
+ <section class="control-module"><div><h2>MANAGER & OWNER CONTROLS</h2><p id="safety-note">External publishing, advertising spend, applications and commitments remain locked without owner authorization.</p></div><div class="lock-icon">🔒 <span>APPROVAL SYSTEM NOT CONNECTED</span></div></section>
+ <footer><a href="./index.html#station">← Return to station</a><span>MINION HQ · PUBLIC REPORT VIEW · NO PRIVATE ARTIFACTS EXPOSED</span></footer>
+</main>
+</body>
+</html>
