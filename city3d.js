@@ -66,6 +66,16 @@ function tree(x,z,s=1){const g=new THREE.Group();g.position.set(x,0,z);scene.add
 for(let x=-340;x<=340;x+=27)for(let z=-245;z<=245;z+=28){if(Math.abs(x)<24||Math.abs(z)<23||Math.abs(z-195)<20||Math.abs(z+195)<20||Math.abs(x-220)<18||Math.abs(x+220)<18)continue;if(configs.some(b=>Math.abs(x-b.x)<b.w/2+23&&Math.abs(z-b.z)<b.d/2+23))continue;if((Math.floor(x*13+z*7)%4+4)%4===0)tree(x,z,.65+((x+z+800)%4)*.09)}
 for(let x=-320;x<=320;x+=50)for(const z of [-32,32,177,213,-177,-213]){const pole=cube(scene,1.5,19,1.5,mat(0x6073a1),x,10,z);const bulb=new THREE.Mesh(new THREE.SphereGeometry(3.5,8,8),neon(0x8eeaff,2));bulb.position.set(x,21,z);scene.add(bulb)}
 const stars=new THREE.BufferGeometry(),pts=[];for(let i=0;i<450;i++)pts.push((Math.random()-.5)*1100,90+Math.random()*480,(Math.random()-.5)*1100);stars.setAttribute('position',new THREE.Float32BufferAttribute(pts,3));scene.add(new THREE.Points(stars,new THREE.PointsMaterial({color:0x9a9cff,size:1.4})));
+
+const networkLinks=[];
+for(const b of configs.filter(item=>item.id!=='manager')){
+ const curve=new THREE.QuadraticBezierCurve3(new THREE.Vector3(0,195,0),new THREE.Vector3(b.x*.5,175,b.z*.5),new THREE.Vector3(b.x,b.h+28,b.z));
+ const geometry=new THREE.BufferGeometry().setFromPoints(curve.getPoints(48));
+ const route=new THREE.Line(geometry,new THREE.LineDashedMaterial({color:b.color,dashSize:7,gapSize:5,transparent:true,opacity:.45}));
+ route.computeLineDistances();scene.add(route);
+ const node=new THREE.Mesh(new THREE.SphereGeometry(3,8,8),neon(b.color));scene.add(node);
+ networkLinks.push({b,curve,route,node});
+}
 let azimuth=.65,elevation=.83,distance=760,target=new THREE.Vector3(0,32,0),down=null;
 function updateCamera(){const ce=Math.cos(elevation);camera.position.set(target.x+distance*Math.sin(azimuth)*ce,target.y+distance*Math.sin(elevation),target.z+distance*Math.cos(azimuth)*ce);camera.lookAt(target)}
 function resize(){const w=host.clientWidth||640,h=host.clientHeight||460;camera.aspect=w/h;camera.updateProjectionMatrix();renderer.setSize(w,h,false)}new ResizeObserver(resize).observe(host);resize();updateCamera();
@@ -79,7 +89,7 @@ document.getElementById('zoom-in')?.addEventListener('click',()=>{distance=Math.
 document.getElementById('zoom-out')?.addEventListener('click',()=>{distance=Math.min(1050,distance*1.2);updateCamera()});
 window.update3DCityStates=s=>{statuses=s||{};for(const b of buildings){const color=statusColors[statuses[b.id]]||statusColors.blocked;b.marker.material=neon(color,1.2)}};
 if(window.__minionSnapshotStates)window.update3DCityStates(window.__minionSnapshotStates);
-let t=0;function animate(){requestAnimationFrame(animate);t+=.01;for(const b of buildings){if(b.beacon){b.beacon.rotation.y+=.009;b.beacon.position.y=b.h+66+Math.sin(t)*2}}renderer.render(scene,camera)}animate();
+let t=0;function animate(){requestAnimationFrame(animate);t+=.01;for(const link of networkLinks){link.node.position.copy(link.curve.getPoint((t*.08+configs.indexOf(link.b)*.12)%1));link.route.material.opacity=statuses[link.b.id]==='working'?.85:.3}for(const b of buildings){if(b.beacon){b.beacon.rotation.y+=.009;b.beacon.position.y=b.h+66+Math.sin(t)*2}}renderer.render(scene,camera)}animate();
 window.__minion3D=true;
 }catch(err){console.error('3D city unavailable; retaining 2D fallback',err);fallback.style.display='block'}
 }
