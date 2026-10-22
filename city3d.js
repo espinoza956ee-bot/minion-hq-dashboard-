@@ -78,6 +78,7 @@ renderer.domElement.addEventListener('wheel',e=>{e.preventDefault();distance=Mat
 document.getElementById('zoom-in')?.addEventListener('click',()=>{distance=Math.max(240,distance*.82);updateCamera()});
 document.getElementById('zoom-out')?.addEventListener('click',()=>{distance=Math.min(1050,distance*1.2);updateCamera()});
 window.update3DCityStates=s=>{statuses=s||{};for(const b of buildings){const color=statusColors[statuses[b.id]]||statusColors.blocked;b.marker.material=neon(color,1.2)}};
+if(window.__minionSnapshotStates)window.update3DCityStates(window.__minionSnapshotStates);
 let t=0;function animate(){requestAnimationFrame(animate);t+=.01;for(const b of buildings){if(b.beacon){b.beacon.rotation.y+=.009;b.beacon.position.y=b.h+37+Math.sin(t)*2}}renderer.render(scene,camera)}animate();
 window.__minion3D=true;
 }catch(err){console.error('3D city unavailable; retaining 2D fallback',err);fallback.style.display='block'}
