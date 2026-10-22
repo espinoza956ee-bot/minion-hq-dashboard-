@@ -24,3 +24,9 @@
 .game-viewport>canvas:not(#station-canvas){width:100%!important;height:100%!important;image-rendering:auto;touch-action:none}
 .game-viewport:fullscreen{display:block;width:100vw;height:100dvh;max-width:none;border:0;border-radius:0}
 @media(max-width:700px){.game-viewport{height:490px}.starstation{padding:8px}.stationtop{font-size:10px}}
+
+/* Space-station canvas: eliminate leftover 3D viewport and unused vertical area. */
+.game-viewport{height:auto!important;aspect-ratio:960/620!important;min-height:0!important;background:#050b10!important;display:block!important}
+.game-viewport #station-canvas{display:block!important;width:100%!important;height:100%!important;object-fit:fill;image-rendering:pixelated;touch-action:none}
+.game-viewport:fullscreen{height:100dvh!important;aspect-ratio:auto!important;display:flex!important;align-items:center!important;justify-content:center!important}
+.game-viewport:fullscreen #station-canvas{width:min(100vw,154.84dvh)!important;height:auto!important;max-height:100dvh!important;object-fit:contain}
