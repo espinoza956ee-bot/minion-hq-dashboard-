@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-23T12:20:57.671472+00:00",
-  "run_id": "39952622332",
-  "run_url": "https://github.com/espinoza956ee-bot/My-jobs-/actions/runs/39952622332",
+  "generated_at": "2026-10-24T12:20:35.336170+00:00",
+  "run_id": "40093523777",
+  "run_url": "https://github.com/espinoza956ee-bot/My-jobs-/actions/runs/40093523777",
   "public_read_only": true,
   "market_demand_verified": false,
   "sales_verified": false,
@@ -29,13 +29,13 @@
     "research": {
       "summary": "4 AI-income categories scanned this run; buyer demand remains unverified.",
       "tasks": [
-        "Printable planners and checklists — External research unavailable",
         "AI-assisted study guides and worksheets — External research unavailable",
         "Business research and lead-list preparation — External research unavailable",
         "Ecommerce listing and description services — External research unavailable",
+        "Presentation and proposal design — External research unavailable",
         "Customer Needs Researcher: 3 topics, 14 public-source signals; buyer demand not verified",
         "AI Income & Opportunities Researcher: 3 topics, 15 public-source signals; buyer demand not verified",
-        "Marketplace & Competitor Researcher: 3 topics, 9 public-source signals; buyer demand not verified"
+        "Marketplace & Competitor Researcher: 3 topics, 8 public-source signals; buyer demand not verified"
       ],
       "activity": [
         "Marketplace & Competitor Researcher checking public sources",
