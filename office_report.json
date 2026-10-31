@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-30T12:34:26.374909+00:00",
-  "run_id": "41056338914",
-  "run_url": "https://github.com/espinoza956ee-bot/My-jobs-/actions/runs/41056338914",
+  "generated_at": "2026-10-31T12:31:09.694903+00:00",
+  "run_id": "41201453115",
+  "run_url": "https://github.com/espinoza956ee-bot/My-jobs-/actions/runs/41201453115",
   "public_read_only": true,
   "market_demand_verified": false,
   "sales_verified": false,
@@ -29,13 +29,13 @@
     "research": {
       "summary": "4 AI-income categories scanned this run; buyer demand remains unverified.",
       "tasks": [
-        "English-Spanish business content adaptation — External research unavailable",
         "AI-assisted document formatting and cleanup — External research unavailable",
         "Spreadsheet dashboards and trackers — External research unavailable",
         "Small-business workflow automation — External research unavailable",
+        "AI-assisted social media content packages — External research unavailable",
         "Customer Needs Researcher: 3 topics, 14 public-source signals; buyer demand not verified",
         "AI Income & Opportunities Researcher: 3 topics, 15 public-source signals; buyer demand not verified",
-        "Marketplace & Competitor Researcher: 3 topics, 8 public-source signals; buyer demand not verified"
+        "Marketplace & Competitor Researcher: 3 topics, 9 public-source signals; buyer demand not verified"
       ],
       "activity": [
         "Marketplace & Competitor Researcher checking public sources",
@@ -72,7 +72,7 @@
           "access": "GitHub Actions report artifact"
         },
         {
-          "name": "construction_daily_log_attempt_2.pdf",
+          "name": "construction_daily_log_attempt_1.pdf",
           "access": "GitHub Actions report artifact"
         },
         {
@@ -85,7 +85,7 @@
       "summary": "3/3 product drafts passed internal QC; not a full-page or marketplace compliance audit.",
       "tasks": [
         "daily_reflection: pass, attempt 2",
-        "construction_daily_log: pass, attempt 2",
+        "construction_daily_log: pass, attempt 1",
         "equipment_inspection: pass, attempt 1"
       ],
       "activity": [
